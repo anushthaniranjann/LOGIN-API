@@ -14,14 +14,3 @@ app.use(userRouter)
 app.listen(port, () => {
     console.log('Server is up on port' + port)
 })
-
-
-const myFunction = async () => {
-    const token = jwt.sign({ _id: 'and' }, 'heyythere', { expiresIn: '1 year' })
-    console.log(token)
-
-    const data = jwt.verify(token, 'heyythere')
-    
-}
-
-myFunction()
