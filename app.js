@@ -1,6 +1,8 @@
 const express = require('express')
 require('./db/db')
 const userRouter = require('./routes/user')
+const jwt = require('jsonwebtoken')
+
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -16,14 +18,13 @@ app.listen(port, () => {
     console.log('Server is up on port' + port)
 })
 
-const jwt = require('jsonwebtoken')
 
 const myFunction = async () => {
-    const token = jwt.sign({ _id: 'abc123' }, 'heyythere', { expiresIn: '1 year' })
+    const token = jwt.sign({ _id: 'and' }, 'heyythere', { expiresIn: '1 year' })
     console.log(token)
 
     const data = jwt.verify(token, 'heyythere')
-    console.log(data)
+    
 }
 
 myFunction()
